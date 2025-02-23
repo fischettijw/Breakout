@@ -1,6 +1,5 @@
 import pygame
 import random
-import requests
 
 # Initialize Pygame
 pygame.init()
@@ -30,7 +29,7 @@ ball_speed_x = 1 #random.choice([-4, 4])
 ball_speed_y = 2 #-4
 
 # Brick settings
-BRICK_ROWS = 5
+BRICK_ROWS = 8 #5
 BRICK_COLS = 10
 BRICK_WIDTH = WIDTH // BRICK_COLS
 BRICK_HEIGHT = 30
@@ -90,7 +89,8 @@ while running:
     pygame.draw.rect(screen, BLUE, paddle)
 
     # Draw ball
-    pygame.draw.ellipse(screen, RED, ball)
+    # pygame.draw.ellipse(screen, RED, ball)
+    pygame.draw.rect(screen, RED, ball)
 
     # Draw bricks
     for brick in bricks:
