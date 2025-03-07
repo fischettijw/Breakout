@@ -64,6 +64,9 @@ while running:
     ball.x += ball_speed_x
     ball.y += ball_speed_y
 
+    # paddle.x = ball.x  # Move paddle to follow ball
+    paddle.x = ball.x
+
     # Ball collision with walls
     if ball.left <= 0 or ball.right >= WIDTH:
         ball_speed_x *= -1
