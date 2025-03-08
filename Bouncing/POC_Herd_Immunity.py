@@ -1,3 +1,5 @@
+# https://www.youtube.com/shorts/PBtZ8SRNkw8
+
 import pygame
 import random
 
@@ -7,7 +9,7 @@ pygame.init()
 # Screen settings
 WIDTH, HEIGHT = 800, 600
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
-pygame.display.set_caption("Bouncing Blocks Simulation")
+pygame.display.set_caption("Herd Immunity - POC")
 
 # Colors
 BLACK = (0, 0, 0)
@@ -39,6 +41,7 @@ class Block:
 
     def draw(self, screen):
         pygame.draw.rect(screen, self.color, (self.x, self.y, self.size, self.size))
+        # pygame.draw.rect(screen, "green", (self.x, self.y, self.size, self.size), 1)  # outer rectangle (green stroke)
 
 def check_collision(block1, block2):
     return (
@@ -73,15 +76,15 @@ def resolve_collision(block1, block2):
 
 # Create blocks
 NUM_BLOCKS = 40
-red_block = Block(WIDTH // 2, HEIGHT // 2, 20, RED, 3)
+red_block = Block(WIDTH // 2, HEIGHT // 2, 10, RED, 1)
 blocks = []
 
 for blk in range(NUM_BLOCKS):
-    size = 20
+    size = 30
     x = random.randint(0, WIDTH - size)
     y = random.randint(0, HEIGHT - size)
     color = [random.randint(50, 255) for _ in range(3)]
-    speed = random.randint(2, 4)
+    speed = random.randint(2, 5)
     blocks.append(Block(x, y, size, color, speed))
 
 
@@ -116,6 +119,6 @@ while running:
     red_block.draw(screen)  # Draw the red_block
 
     pygame.display.flip()
-    clock.tick(15)
+    clock.tick(60)
 
 pygame.quit()
