@@ -1,4 +1,7 @@
 # https://chatgpt.com/share/67cc15cf-1d9c-8011-b3d5-dd95968a9a5b
+# https://pubmed.ncbi.nlm.nih.gov/28757186/
+# https://www.ecdc.europa.eu/en/measles/facts
+# https://www.cdc.gov/measles/index.html
 
 import pygame
 import random

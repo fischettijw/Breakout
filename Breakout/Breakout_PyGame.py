@@ -16,6 +16,10 @@ BLUE = (0, 0, 255)
 RED = (255, 0, 0)
 GREEN = (0, 255, 0)
 YELLOW = (255, 255, 0)
+MAGENTA = (255, 0, 255)
+CYAN = (0, 255, 255)
+ORANGE = (255, 165, 0)
+PINK = (255, 192, 203)
 
 # Paddle settings
 PADDLE_WIDTH, PADDLE_HEIGHT = 100, 10
@@ -29,16 +33,20 @@ ball_speed_x = 1 #random.choice([-4, 4])
 ball_speed_y = 2 #-4
 
 # Brick settings
-BRICK_ROWS = 8 #5
+BRICK_ROWS = 8 
 BRICK_COLS = 10
 BRICK_WIDTH = WIDTH // BRICK_COLS
 BRICK_HEIGHT = 30
 bricks = []
 
-# Create bricks
+# Create Rectangles for bricks
+brick_colors = [RED, GREEN, BLUE, YELLOW, MAGENTA, CYAN, ORANGE, PINK]
 for row in range(BRICK_ROWS):
     for col in range(BRICK_COLS):
-        brick = pygame.Rect(col * BRICK_WIDTH, row * BRICK_HEIGHT + 50, BRICK_WIDTH - 2, BRICK_HEIGHT - 2)
+        brick = pygame.Rect(col * BRICK_WIDTH,
+                            row * BRICK_HEIGHT + 50,
+                            BRICK_WIDTH - 2,
+                            BRICK_HEIGHT - 2)
         bricks.append(brick)
 
 # Game loop
@@ -96,7 +104,10 @@ while running:
     pygame.draw.rect(screen, RED, ball)
 
     # Draw bricks
+    brick_row = 0
     for brick in bricks:
+        # brick_row  = brick_row // BRICK_ROWS
+        # pygame.draw.rect(screen, brick_colors[brick_row], brick)
         pygame.draw.rect(screen, YELLOW, brick)
 
     # Update screen
