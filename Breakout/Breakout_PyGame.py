@@ -22,7 +22,7 @@ ORANGE = (255, 165, 0)
 PINK = (255, 192, 203)
 
 # Paddle settings
-PADDLE_WIDTH, PADDLE_HEIGHT = 100, 10
+PADDLE_WIDTH, PADDLE_HEIGHT = 100, 40
 paddle = pygame.Rect(WIDTH // 2 - PADDLE_WIDTH // 2, HEIGHT - 50, PADDLE_WIDTH, PADDLE_HEIGHT)
 paddle_speed = 8
 
@@ -100,15 +100,11 @@ while running:
     pygame.draw.rect(screen, BLUE, paddle)
 
     # Draw ball
-    # pygame.draw.ellipse(screen, RED, ball)
     pygame.draw.rect(screen, RED, ball)
 
     # Draw bricks
-    brick_row = 0
     for brick in bricks:
-        # brick_row  = brick_row // BRICK_ROWS
-        # pygame.draw.rect(screen, brick_colors[brick_row], brick)
-        pygame.draw.rect(screen, YELLOW, brick)
+        pygame.draw.rect(screen, brick_colors[int(brick[1]/BRICK_HEIGHT)-1], brick)
 
     # Update screen
     pygame.display.flip()
